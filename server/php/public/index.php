@@ -12,12 +12,12 @@
     <head>
         <meta charset="utf-8">
         <title>App Installer</title>
-        <meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="<?php echo $b ?>blueprint/screen.css" type="text/css" media="screen, projection">
         <link rel="stylesheet" href="<?php echo $b ?>blueprint/print.css" type="text/css" media="print">
         <!--[if IE]><link rel="stylesheet" href="<?php echo $b ?>blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
         <link rel="stylesheet" href="<?php echo $b ?>blueprint/plugins/buttons/screen.css" type="text/css" media="screen, projection">
-        <link rel="stylesheet" type="text/css" href="<?php echo $b ?>css/stylesheet.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo $b ?>css/bootstrap.css">
         <link rel="alternate" type="application/rss+xml" title="App Updates" href="<?php echo $b ?>feed.php" />
     </head>
     <body class="<?php echo DeviceDetector::$category; ?>">
@@ -119,7 +119,7 @@
 		                          echo "<b>Released:</b> " . date('m/d/Y H:i:s', $app[AppUpdater::INDEX_DATE]);
 		                    	?>
 	                        </p>
-	                        <a class="button" href="<?php echo $b . 'api/2/apps/' . $app[AppUpdater::INDEX_DIR] ?>?format=apk">Install Application</a>
+	                        <a class="btn btn-primary" href="<?php echo $b . 'api/2/apps/' . $app[AppUpdater::INDEX_DIR] ?>?format=apk">Install Application</a>
 	                    	<?php if ($app[AppUpdater::INDEX_NOTES]) : ?>
 	                        	<p><br/><br/></p>
 	                        	<p><b>What's New:</b><br/><?php echo $app[AppUpdater::INDEX_NOTES] ?></p>
@@ -236,9 +236,9 @@
 	                        </p>
 		                    <div style='clear:both;'></div>
 	                        <?php if (isset($app[AppUpdater::INDEX_PROFILE]) && $app[AppUpdater::INDEX_PROFILE]) { ?>                    
-	        	                <a class="button" href="<?php echo $b . 'api/2/apps/' . $app[AppUpdater::INDEX_DIR] ?>?format=mobileprovision">Install Profile</a>
+	        	                <a class="btn btn-primary" href="<?php echo $b . 'api/2/apps/' . $app[AppUpdater::INDEX_DIR] ?>?format=mobileprovision">Install Profile</a>
 	        	            <?php } ?>
-	                        <a class="button" href="itms-services://?action=download-manifest&amp;url=<?php echo urlencode($b . 'api/2/apps/' . $app[AppUpdater::INDEX_DIR] . "?format=plist&" . AppUpdater::PARAM_2_APP_VERSION . "=" . $app[AppUpdater::INDEX_VERSION_DIR]) ?>">Install Application</a>
+	                        <a class="btn btn-primary" href="itms-services://?action=download-manifest&amp;url=<?php echo urlencode($b . 'api/2/apps/' . $app[AppUpdater::INDEX_DIR] . "?format=plist&" . AppUpdater::PARAM_2_APP_VERSION . "=" . $app[AppUpdater::INDEX_VERSION_DIR]) ?>">Install Application</a>
 	    	                <?php if ($app[AppUpdater::INDEX_NOTES]) : ?>
 	    	                    <p><br/><br/></p>
 	    	                    <p><b>What's New:</b><br/><?php echo $app[AppUpdater::INDEX_NOTES] ?></p>
@@ -312,9 +312,11 @@
 	
 	                        <div class="ipadbuttons">
 	                   	 	<?php if ($app[AppUpdater::INDEX_PROFILE]) { ?>
-	                            <a class="button" href="<?php echo $b . 'api/2/apps/' . $app[AppUpdater::INDEX_DIR] ?>?format=mobileprovision">Install Profile</a>
+	                            <a class="btn btn-primary
+	                            
+	                            " href="<?php echo $b . 'api/2/apps/' . $app[AppUpdater::INDEX_DIR] ?>?format=mobileprovision">Install Profile</a>
 	                    	<?php } ?>
-	                            <a class="button" href="itms-services://?action=download-manifest&amp;url=<?php echo urlencode($b . 'api/2/apps/' . $app[AppUpdater::INDEX_DIR] . "?format=plist&" . AppUpdater::PARAM_2_APP_VERSION . "=" . $app[AppUpdater::INDEX_VERSION_DIR]) ?>">Install Application</a>
+	                            <a class="btn btn-primary" href="itms-services://?action=download-manifest&amp;url=<?php echo urlencode($b . 'api/2/apps/' . $app[AppUpdater::INDEX_DIR] . "?format=plist&" . AppUpdater::PARAM_2_APP_VERSION . "=" . $app[AppUpdater::INDEX_VERSION_DIR]) ?>">Install Application</a>
 	                        </div>
 	
 	                    	<?php if ($app[AppUpdater::INDEX_NOTES]) : ?>
@@ -396,12 +398,12 @@
 
 	                        <div class="desktopbuttons">
 	                        <?php if (isset($app[AppUpdater::INDEX_PROFILE]) && $app[AppUpdater::INDEX_PROFILE]) : ?>
-	                            <a class="button" href="<?php echo $b . 'api/2/apps/' . $app[AppUpdater::INDEX_DIR] ?>?format=mobileprovision">Download Profile </a>
+	                            <a class="btn btn-primary" href="<?php echo $b . 'api/2/apps/' . $app[AppUpdater::INDEX_DIR] ?>?format=mobileprovision">Download Profile </a>
 	                        <?php endif;
 	                        if ($app[AppUpdater::INDEX_PLATFORM] == AppUpdater::APP_PLATFORM_IOS) : ?>
-	                        <a class="button" href="<?php echo $b . $app['path'] ?>">Download Application</a>
+	                        <a class="btn btn-primary" href="<?php echo $b . $app['path'] ?>">Download Application</a>
 	                        <?php elseif ($app[AppUpdater::INDEX_PLATFORM] == AppUpdater::APP_PLATFORM_ANDROID) : ?>
-	                        <a class="button" href="<?php echo $b . $app['path'] ?>">Download Application</a>
+	                        <a class="btn btn-primary" href="<?php echo $b . $app['path'] ?>">Download Application</a>
 	                        <?php endif ?>
 	                        </div>
 
